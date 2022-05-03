@@ -1,7 +1,16 @@
 module.exports = {
-  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  stories: ['../generated-stories/**/*.stories.@(js|jsx|ts|tsx|mdx)', '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   // add any storybook addons you want here: https://storybook.js.org/addons/`
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-links',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        transcludeMarkdown: true
+      }
+    },
+    '@storybook/addon-essentials'
+  ],
   framework: 'react',
   babel: async options => {
     return {

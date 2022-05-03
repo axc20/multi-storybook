@@ -1,3 +1,4 @@
 node_modules
+generated-stories
 storybook-static
 packages/lit

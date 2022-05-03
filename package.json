@@ -30,6 +30,8 @@
     "@types/prettier": "2.6.0",
     "autoprefixer": "10.4.5",
     "babel-loader": "8.2.5",
+    "chalk": "5.0.1",
+    "globby": "13.1.1",
     "http-server": "14.1.0",
     "jest": "27.5.1",
     "lit-html": "2.2.3",
