@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="setup/ssh" />
+
+# ssh
+
+```shell
+# (1) generate a new SSH key (if one does not already exist)
+# Ed25519 algorithm
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# legacy system that doesn't support Ed25519 algorithm
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+# (2) add SSH key to the ssh-agent
+# start ssh-agent in background
+eval "$(ssh-agent -s)"
+
+# add your SSH key to the ssh-agent
+ssh-add ~/.ssh/id_ed25519
+
+# check to see if your SSH key is loaded
+ssh-add L
+
+# (3) modify ~/.ssh/config
+# omit UseKeychain if you chose not to add a passphrase to your key
+
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+# --- or ---
+
+Host github.com
+   AddKeysToAgent yes
+   User git
+   IdentityFile ~/.ssh/id_ed25519
+
+# add SSH key to GitHub account
+pbcopy < ~/.ssh/id_ed25519.pub
+
+# test SSH connection
+ssh -T git@github.com
+
+# update remote's URL for each repo
+git remote set-url origin ...
+```

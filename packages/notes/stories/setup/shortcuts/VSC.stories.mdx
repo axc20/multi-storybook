@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="setup/shortcuts/VSC" />
+
+# Visual studio code
+
+| Shortcut              | Functionality                    |
+| --------------------- | -------------------------------- |
+| `cmd B`               | toggle sidebar                   |
+| `cmd shift P`         | open command palette             |
+| `cmd P`               | open file switcher               |
+| `` ctrl ` ``          | toggle integrated terminal       |
+| `cmd ,`               | open settings                    |
+| `opt ↑/↓`             | move lines                       |
+| `opt shift ↑/↓`       | duplicate lines                  |
+| `cmd shift K`         | delete line                      |
+| `cmd shift L`         | multiple cursor all              |
+| `cmd D, cmd K, cmd D` | multiple cursor with skip        |
+| `opt click`           | add cursor                       |
+| `opt Z`               | toggle wordwrap                  |
+| `! tab`               | html boilerplate in `.html` file |
+
+## Settings
+
+- Editor → Minimap: Enabled → Disable
+- Workbench → Sidebar: Location → Right
+- Explorer → Open Editors: Visible → 0
+- Workbench → Setting: Editor → Json
+
+```json
+{
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "prettier.requireConfig": true
+  }
+}
+```
+
+## Find
+
+- `cmd F` → project find
+- `cmd shift F` → project find and replace
+- regex find
+- find → `opt enter` → cursor at every instance
+- find → `opt enter` → `opt ←/→`
+
+## Other
+
+- code folding: `//#region` ... `//#endregion`
+- `cmd PP` → go to the last file you were at
+- `F2` → rename, refactor
+- right click → peek references
+- lightbulb → `cmd ctrl .`
+- `javascript.implicitProjectConfig.checkJs` → use VSCode TypeScript to check JS
+
+## Extensions
+
+- GitLens
+- Peacock
+- Import Cost
+- CodeMetrics
+- TODO Highlight

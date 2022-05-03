@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="javascript/esm" />
+
+# ES module syntax
+
+```js
+// named imports: original name, custom name
+import { something } from './module.js';
+import { something as somethingElse } from './module.js';
+
+// namespace imports
+// import everything from source module as an object
+// which exposes all the module's named exports as properties and methods
+// `something` in the example above would be `module.something`
+// if present, the default export can be accessed via `module.default`
+import * as module from './module.js';
+
+// default import
+import something from './module.js';
+
+// empty import
+// load the module code, but don't make any new objects available
+// useful for polyfills
+import './module.js';
+
+// dynamic import API
+// useful for code-splitting apps and using modules on-the-fly
+import('./modules.js').then({ default: DefaultExport, NamedExport }) => {
+  // do something with modules
+});
+```
+
+```js
+// named exports
+const something = true;
+export { something };
+export { something as somethingElse };
+// this works with `var`, `let`, `const`, `class`, and `function`
+export const something = true;
+
+// default export
+// only recommended if your source module only has one export
+// bad practice to mix default and named exports in same module
+export default something;
+
+// ES modules export live bindings (not values)
+// so values can be changed after they are initially imported
+// incrementer.js
+export let count = 0;
+export function increment() {
+  count += 1;
+}
+
+// main.js
+import { count, increment } from './incrementer.js';
+
+console.log(count); // 0
+increment();
+console.log(count); // 1
+
+count += 1; // Error - only incrementer.js can change this
+```

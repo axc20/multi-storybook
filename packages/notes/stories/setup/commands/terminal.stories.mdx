@@ -1,0 +1,104 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="setup/commands/terminal" />
+
+# terminal
+
+## command line reference
+
+Windows, macOS - whatever operating system you're using - is simply a visual representation of your computer, known as a **Graphical User Interface (GUI)**. Take away the file explorer, desktop, icons, and other graphics, and you're left with the command line. Your _entire_ computer can be accessed through the command line.
+
+```shell
+# print working directory
+pwd
+
+# list directory contents
+ls
+
+# clear terminal screen
+clear
+
+# change directory
+# . represents current directory, .. represents one directory backwards
+cd directory
+cd .. # go back one directory
+# spaces in directory and file names
+cd "My Projects" # quotations
+cd My\ Projects # escaping
+
+# make directory
+mkdir directory
+
+# create new file
+touch file
+
+# concatentate - view contents of a file
+cat file
+
+# write text to a file
+echo "Some Text" > file
+
+# remove
+rm file
+rm *.png # wild card; delete all png files
+
+# remove directory
+rmdir directory
+rm -r directory # remove a directory that has files in it
+
+# copy files and directories
+cp source destination
+cp -R source destination # copy recursively (copy a directory and all its contents)
+
+# duplicating a file
+cp file newFile
+
+# moving files and directories
+mv source destination
+
+# run multiple commands (&&)
+touch newfile.txt && mv newfile.txt websites
+
+# change mode (change permissions)
+chmod 644 test.html # 644 - read and write by owner
+sudo chmod 775 directory # sudo - super user do
+sudo su # switch to the administrator user
+exit # return back to regular user account
+
+# connecting to another computer or server
+ssh username@host
+
+# display current user id
+whoami
+
+# DNS lookup
+dig website
+
+# open manual (help) pages
+man command # q to quit
+
+# free text editing program
+nano file
+```
+
+## homebrew
+
+```shell
+# homebrew
+brew update
+brew doctor
+brew install some-package
+brew uninstall some-package
+brew autoremove
+brew list # list packages installed by brew
+brew leaves # list all top-level packages installed by brew
+brew remove --force $(brew list --formula) # uninstall all packages installed by Homebrew
+```
+
+## PATH
+
+When you run a command line like `python` or `pip`, your OS searches through a list of directories to find an executable file with that name. This list of directories lives in an environment variable called `PATH`, with each directory in the list separated by a colon.
+
+```shell
+echo $PATH
+```

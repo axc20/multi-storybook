@@ -1,0 +1,77 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="setup/commands/npm" />
+
+# npm
+
+```shell
+# npm link, package name is taken from package.json
+cd ~/projects/my-project
+npm link
+cd ~/projects/my-other-project
+npm link my-project
+
+# update dependencies regularly
+# audit modules to highlight potential security risks
+npm audit
+npm audit fix
+npm audit fix --force
+# show outdated packages
+npm outdated
+# update packages (or specified package)
+npm update # npm up also works
+npm update <package>
+
+# start a new project
+npm init -y
+
+# install dev dependency
+# @ tells npm to look for a specific tag of the module you are installing
+# without a specified tag, npm installs the latest tagged version
+npm i eslint@6.0.0 --save-dev
+
+# install exact dev dependency
+npm i eslint@6.0.0 -D --save-exact
+
+# uninstall module
+npm uninstall eslint # npm un also works
+
+# clean install of dependencies (instead of npm i)
+# to be used in automated environments such as test platforms, CI/CD
+npm ci
+
+# see available versions
+npm view <package> versions
+
+# list all installed modules
+npm ls
+
+# list all globally installed modules
+npm ls -g --depth 0
+
+# kill port
+npx kill-port 3000
+```
+
+## npm config
+
+npm gets its configuration values from the following sources, sorted by priority:
+
+1. command line flags
+
+   `--foo bar` on the command line sets the `foo` configuration parameter to `bar`
+
+2. environment variables
+
+   Any enviroment variables that start with `npm_config_` will be interpreted as a configuration parameter. For example, `npm_config_foo=bar`. Config values are case-insensitive.
+
+3. npmrc files
+
+   - per-project configuration file
+   - per-user configuration (defaults to `$HOME/.npmrc`)
+   - global configuration file (defaults to `$PREFIX/etc/npmrc`)
+   - npm's built-in configuration file
+
+4. default configs
+
+   Run `npm config ls -l` to see a set of configuration parameters that are internal to npm, and are defaults if nothing else is specified.

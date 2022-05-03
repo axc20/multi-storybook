@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="setup/commands/git" />
+
+# git
+
+Git is a version control system (VCS) for code. It is used to keep track of revisions and allow a developer or dev team to work together on a project through branches.
+
+Local Environment ⇋ Git Repository (GitHub) ⇋ Live Server (website)
+
+```shell
+git config # configure git
+git config --global user.name <firstname lastname>
+git config --global user.email <email>
+git conifg --global init.defaultBranch main
+
+git init # initialize git repository
+git remote add <remote name> <remote URL> # add a new remote
+git remote add origin https://github.com/user/repo.git
+
+git status
+git add <some file> # -A
+git add .
+git reset <some file>
+git commit -m <some message> # fix: ..., feat: ..., chore: ..., chore(release): 1.2.0
+
+# i to select text, esc to save, :wq + enter to commit
+git commit --amend # amend git commit
+git revert <commit to revert>
+
+git stash
+git stash apply # restores saved commits and applies to current branch
+
+git branch
+git checkout main
+git checkout <branch name>
+git checkout -b <new branch name>
+
+git push origin <branch name>
+git pull origin <branch name>
+git rebase main
+git pull origin <branch_name> # --> fix conflicts --> push branch --> PR --> merge
+git branch -d <branch name> # -D (force delete)
+git branch -m <old branch name> <new branch name> # rename a branch
+git branch -m <new branch name> # rename current branch
+
+git branch -a # list all branches on local and remote
+git branch -r # list all remote branches
+git fetch -p # keep local repo in sync with deleted remote branches
+git checkout <remote branch> # make remote branch a local branch to work origin
+git remote update --prune # keep branches up to date
+
+git reset --hard <commit> # hard reset to specific commit
+git checkout HEAD -- <some file> # hard reset of single file
+git checkout -- package.json package-lock.json # this resets package.json, package-lock.json
+git clean -df && git checkout -- . # nuke all changes not yet committed
+
+git blame <file>
+
+git tag <tag name>
+git push origin <tag name>
+```

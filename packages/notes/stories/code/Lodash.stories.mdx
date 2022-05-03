@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs';
+import LiveCodeEditor from '../../src/LiveCodeEditor';
+
+<Meta title="code/lodash" />
+
+# Lodash
+
+<LiveCodeEditor>
+
+```js live=true
+() => {
+  const { camelCase, kebabCase, startCase } = Lodash;
+  const str1 = 'HELLO_WORLD';
+  const str2 = 'hello_world';
+
+  return (
+    <ul>
+      <li>{camelCase(str1)}</li>
+      <li>{kebabCase(str1)}</li>
+      <li>{startCase(str2)}</li>
+    </ul>
+  );
+};
+```
+
+</LiveCodeEditor>
