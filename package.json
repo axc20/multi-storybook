@@ -10,7 +10,10 @@
     "packages/*"
   ],
   "scripts": {
-    "sb:notes": "start-storybook -c packages/notes/.storybook -p 4700 --quiet"
+    "sb:notes": "start-storybook -c packages/notes/.storybook -p 4700 --quiet",
+    "deploy": "storybook-to-ghpages --packages packages -o=./storybook-static",
+    "postdeploy": "node tools/cleanup.mjs",
+    "start": "http-server storybook-static"
   },
   "devDependencies": {
     "@babel/core": "7.17.10",
