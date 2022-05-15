@@ -1,0 +1,9 @@
+{
+  "name": "axc-svelte",
+  "description": "svelte adventures",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build-storybook": "node ../../node_modules/@storybook/svelte/bin/build.js -c .storybook"
+  }
+}

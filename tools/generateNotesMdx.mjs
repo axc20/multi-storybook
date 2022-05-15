@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
 import chalk from 'chalk';
-import globby from 'globby';
+import { globby } from 'globby';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicContentPath = path.resolve(__dirname, '../content/public/');
