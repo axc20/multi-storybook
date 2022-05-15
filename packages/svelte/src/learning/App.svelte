@@ -5,12 +5,16 @@
   export let name = '';
   import LearnReactivity from './LearnReactivity.svelte';
   import LearnBasics from './LearnBasics.svelte';
+  import LearnProps from './LearnProps.svelte';
+  import LearnLogic from './LearnLogic.svelte';
 </script>
 
 <main>
   <h1>Hello {name}</h1>
   <LearnBasics />
   <LearnReactivity />
+  <LearnProps />
+  <LearnLogic />
 </main>
 
 <style>
