@@ -7,6 +7,8 @@
   import LearnBasics from './LearnBasics.svelte';
   import LearnProps from './LearnProps.svelte';
   import LearnLogic from './LearnLogic.svelte';
+  import LearnEvents from './LearnEvents.svelte';
+  import LearnBindings from './LearnBindings.svelte';
 </script>
 
 <main>
@@ -15,6 +17,8 @@
   <LearnReactivity />
   <LearnProps />
   <LearnLogic />
+  <LearnEvents />
+  <LearnBindings />
 </main>
 
 <style>
