@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es2022": true,
+    // "node": true,
+    "jest": true
+  },
+  "overrides": [
+    {
+      "files": ["*.mdx"],
+      "extends": ["plugin:mdx/recommended", "prettier"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.mjs"],
+      "extends": ["prettier"],
+      "parserOptions": {
+        "ecmaVersion": "latest"
+      },
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["prettier"]
+    }
+  ]
+}
