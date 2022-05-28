@@ -1,5 +1,9 @@
 module.exports = {
-  stories: ['../generated-stories/**/*.stories.@(js|jsx|ts|tsx|mdx)', '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  stories: [
+    '../stories/Resources.stories.mdx',
+    '../generated-stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
+  ],
   // add any storybook addons you want here: https://storybook.js.org/addons/`
   addons: [
     '@storybook/addon-links',
