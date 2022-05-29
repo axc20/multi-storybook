@@ -13,10 +13,13 @@
     "prepare": "husky install",
     "presb:notes": "node tools/generateNotesMdx.mjs",
     "sb:notes": "start-storybook -c packages/notes/.storybook -p 4700 --quiet",
+    "sb:react": "node node_modules/@storybook/react/bin -c packages/react/.storybook -p 4750 --quiet",
     "sb:svelte": "node node_modules/@storybook/svelte/bin -c packages/svelte/.storybook -p 4800 --quiet",
     "deploy": "storybook-to-ghpages --packages packages -o=./storybook-static",
     "postdeploy": "node tools/cleanup.mjs",
-    "start": "http-server storybook-static"
+    "start": "http-server storybook-static",
+    "wasteland:eslint": "eslint the-wasteland",
+    "wasteland:eslint:ci": "eslint the-wasteland --format=html --output-file=the-wasteland/eslintReport.html"
   },
   "devDependencies": {
     "@babel/core": "7.17.10",
@@ -59,6 +62,7 @@
     "http-server": "14.1.0",
     "husky": "8.0.1",
     "jest": "27.5.1",
+    "lint-staged": "12.4.2",
     "lit-html": "2.2.3",
     "lodash-es": "4.17.21",
     "postcss": "8.4.13",
@@ -79,6 +83,7 @@
     "typescript": "4.6.4",
     "webpack": "5.72.0"
   },
+  "lint-staged": {},
   "prettier": {
     "arrowParens": "avoid",
     "printWidth": 120,

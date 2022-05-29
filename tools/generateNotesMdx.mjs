@@ -9,6 +9,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicContentPath = path.resolve(__dirname, '../content/public/');
 const generateStoriesPath = path.resolve(__dirname, '../packages/notes/generated-stories');
 
+const removeIndex = value => value.replace(/[0-9]+-/, '');
+
 const publicFiles = (await globby([`${publicContentPath}/**/*`])).map(x => x.replace(`${publicContentPath}/`, ''));
 
 execSync(`rm -rf ${generateStoriesPath}`);
@@ -22,12 +24,12 @@ try {
 
 publicFiles.forEach((file, index) => {
   const data = `import { Meta } from '@storybook/addon-docs';
-import Readme from '../../../content/public/${file}';
+import MdFile from '../../../content/public/${file}';
 
-<Meta title="${file}" />
+<Meta title="${removeIndex(file)}" />
 
-<Readme />
+<MdFile />
 `;
-
-  writeFileSync(`${generateStoriesPath}/Content-${index}.stories.mdx`, data, { encoding: 'utf-8' });
+  const idx = new Intl.NumberFormat('en-US', { minimumIntegerDigits: 2 }).format(index);
+  writeFileSync(`${generateStoriesPath}/Content-${idx}.stories.mdx`, data, { encoding: 'utf-8' });
 });

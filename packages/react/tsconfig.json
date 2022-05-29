@@ -15,6 +15,6 @@
     "jsx": "react",
     "strict": true
   },
-  "include": ["src"],
+  "include": ["src", "../notes/src/Abdomination.examples.tsx"],
   "exclude": ["node_modules", "lib"]
 }
