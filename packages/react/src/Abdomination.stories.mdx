@@ -2,7 +2,11 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Abdomination from './Abdomination';
 import { AbdominationExample } from './Abdomination.examples';
 
-<Meta title="Abdomination" component={Abdomination} />
+<Meta
+  title="Abdomination"
+  component={Abdomination}
+  argTypes={{ eyes: { table: { disable: true } }, legs: { control: false } }}
+/>
 
 # Abdomination
 
@@ -12,14 +16,6 @@ This component is an abdomination.
 
 ## ???
 
-????
-
-<AbdominationExample />
-
-<!--
 <Canvas>
-  <Story name="Default">
-    {AbdominationExample.bind({})}
-  </Story>
-<Canvas>
--->
+  <Story name="Default">{AbdominationExample.bind({})}</Story>
+</Canvas>

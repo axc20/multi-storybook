@@ -1,14 +1,10 @@
 module.exports = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  // add any storybook addons you want here: https://storybook.js.org/addons/`
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-  framework: 'react',
-  babel: async options => {
-    return {
-      ...options,
-      presets: [...options.presets, '@babel/preset-react']
-    };
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+  features: {
+    previewMdx2: true
   },
+  framework: '@storybook/react',
   core: {
     builder: 'webpack5'
   }
