@@ -9,6 +9,7 @@ import babelParser from 'prettier/parser-babel';
 
 const CodeBlock = ({ children, className, live, render, noInline = false }) => {
   const language = className.replace(/language-/, '');
+  console.log(language);
 
   const transform = obj => {
     const values = Object.entries(obj).reduce((acc, [k, v]) => {
