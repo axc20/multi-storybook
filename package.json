@@ -14,7 +14,7 @@
     "presb:notes": "git submodule update --remote && node tools/generateNotesMdx.mjs",
     "sb:notes": "yarn --cwd ./packages/notes dev",
     "sb:react": "yarn --cwd ./packages/react dev",
-    "sb:svelte": "node node_modules/@storybook/svelte/bin -c packages/svelte/.storybook -p 4800 --quiet",
+    "sb:svelte": "yarn --cwd ./packages/svelte dev",
     "deploy": "storybook-to-ghpages --packages packages -o=./storybook-static",
     "postdeploy": "node tools/cleanup.mjs",
     "start": "http-server storybook-static",
@@ -22,6 +22,7 @@
     "wasteland:eslint:ci": "eslint the-wasteland --format=html --output-file=the-wasteland/eslintReport.html"
   },
   "devDependencies": {
+    "@storybook/storybook-deployer": "2.8.11",
     "chalk": "5.0.1",
     "eslint": "8.17.0",
     "eslint-config-prettier": "8.5.0",

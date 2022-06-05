@@ -5,5 +5,9 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-svelte-csf',
     '@storybook/addon-interactions'
-  ]
+  ],
+  framework: '@storybook/svelte'
+  // core: {
+  //   builder: 'webpack5'
+  // }
 };
